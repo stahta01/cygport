@@ -57,7 +57,7 @@ xvfb_run() {
 	local xvfb_display xvfb_pid dbus_pid gamin_pid
 	local xvfb_sock dbus_sock gamin_sock
 
-	check_prog_req Xorg xorg-server
+	check_prog_req Xorg xorg-server-xorg
 	check_prog_req xmodmap  # relatively safe dep, required by xinit
 
 	if defined DISPLAY && xmodmap -display $DISPLAY &> /dev/null
