@@ -35,7 +35,7 @@
 #  If PN does not match the name of the original source tarball,
 #  define ORIG_PN before inherit()ing.
 #  INHERITED BY
-#  gnome2.cygclass, gtkmm.cygclass, pygtk.cygclass
+#  gnome2.cygclass, gtkmm.cygclass
 #  SEE ALSO
 #  mirror_gnome
 #****
