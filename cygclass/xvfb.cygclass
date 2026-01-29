@@ -130,4 +130,21 @@ xvfb_run() {
 	return $status
 }
 
-readonly -f xvfb_run
+# define a new function wrapped_previous_src_test with the same contents as
+# existing src_test
+# XXX: maybe should check that src_test is defined?
+eval wrapped_previous_"$(declare -f src_test)"
+
+#****o* meson.cygclass/src_test (xvfb)
+#  DEFINITION
+src_test() {
+	cd ${S}
+	xvfb_run wrapped_previous_src_test
+}
+#  NOTE
+# 'inherit xvfb' automatically wraps the existing src_test() function defined by
+# any previous cygclass in a call to xvfb_run. Usually, that is all that's
+# needed, but you can override this by writing your own src_test() if necessary.
+#****
+
+readonly -f xvfb_run wrapped_previous_src_test
