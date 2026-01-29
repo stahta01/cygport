@@ -122,8 +122,17 @@ meson_compile() {
 #  NOTE
 #  meson_test should be run in the directory containing the top-level meson.build.
 #****
+
+#****v* cygmeson/CYGMESON_TEST_ARGS
+#  DESCRIPTION
+#  Additional flags to pass to meson test, as a string.
+#  DEFINITION
+CYGMESON_TEST_ARGS=${CYGMESON_TEST_ARGS:-"--timeout-multiplier=2"}
+#  EXAMPLE
+#    CYGMESON_TEST_ARGS="--timeout-multiplier=10"
+#****
 meson_test() {
-	ninja_test -C _build.${CHOST}
+	meson test -C _build.${CHOST} ${CYGMESON_TEST_ARGS}
 }
 
 #****I* meson.cygclass/meson_install
