@@ -563,7 +563,7 @@ for suffix, mode, type in imp.get_suffixes(): print(suffix)')
 		done
 	done
 
-	if [ "${PN}" != "ruby" ] && check_prog ruby
+	if [ "${PN}" != "ruby" ] && check_prog ruby && check_prog gem
 	then
 		rbdirs=($(ruby -e 'print($:.join(" "))'))
 		rbdirs+=" ${DEPS_PATH//:/ }"
